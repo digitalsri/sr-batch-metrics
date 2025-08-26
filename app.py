@@ -305,7 +305,11 @@ def main():
         for i, report in enumerate(valid_reports):
             try:
                 status.write(f"**Processing report {i+1}/{len(valid_reports)}: {report.company} ({report.year})**")
-                headers = {'User-Agent': 'Mozilla/5.0'}
+                # Use a more realistic browser User-Agent to avoid 403 errors
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                }
+                # headers = {'User-Agent': 'Mozilla/5.0'}
                 response = requests.get(report.url, headers=headers, timeout=30)
                 response.raise_for_status()
                 pdf_content = response.content
@@ -390,5 +394,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
