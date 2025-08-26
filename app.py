@@ -1,17 +1,12 @@
-import streamlit as st
-
-# read password from Streamlit secrets
-APP_PASSWORD = st.secrets["APP_PASSWORD"]
-
-st.title("Protected App")
-
-password = st.text_input("Enter password", type="password")
-
-if password == APP_PASSWORD:
-    st.success("Access granted")
-    st.write("Your private app content goes here...")
-else:
-    st.error("Access denied")
+# import streamlit as st
+# APP_PASSWORD = st.secrets["APP_PASSWORD"]
+# st.title("Protected App")
+# password = st.text_input("Enter password", type="password")
+# if password == APP_PASSWORD:
+#     st.success("Access granted")
+#     st.write("Your private app content goes here...")
+# else:
+#     st.error("Access denied")
 
 import fitz # PyMuPDF
 import re
@@ -395,4 +390,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
